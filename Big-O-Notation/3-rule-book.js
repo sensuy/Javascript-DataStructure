@@ -1,4 +1,7 @@
-
+// rule 1: worst case
+// rule 2: remove constants
+// rule 3: different terms for inputs
+// rule 4: drop non-dominant terms
 
 
 function printFirstItemThenFirstHalfThenSayHi100Times(items) {
@@ -16,3 +19,8 @@ function printFirstItemThenFirstHalfThenSayHi100Times(items) {
     console.log('hi'); // O(100)
   }
 }
+
+// O(1 + 1 + 1 + n/2 + n/2 + n/2 + 100 + 100) => 
+// O(3 + 3n/2 + 200) 
+// O(203 + 3n/2)
+// O(n/2) => O(n)
