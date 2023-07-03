@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "name": "studies",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon coding-problems/3-reverse-string.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sensuy/Javascript-DataStructure.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sensuy/Javascript-DataStructure/issues"
+  },
+  "homepage": "https://github.com/sensuy/Javascript-DataStructure#readme",
+  "description": ""
+}
