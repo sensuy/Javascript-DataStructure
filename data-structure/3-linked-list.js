@@ -90,7 +90,6 @@ class LinkedList {
 
     const leader = this.traverseToIndex(index - 1);
 
-    console.log(JSON.stringify(leader));
     const holdingPointer = leader.next;
 
     leader.next = newNode;
@@ -122,34 +121,17 @@ class LinkedList {
     return this;
   }
 
-  reverse() {
-    let first = this.head
-    this.tail = first
-    let second = this.head.next
-
-    while (second) {
-        const temp = second.next;
-        second.next = first
-        first = second
-        second = temp;
-    }
-
-    this.head.next = null;
-    this.head = first;
-
-    return this;
-}
-
 }
 
 
-const mylinkedList = new LinkedList(0);
-mylinkedList.append(1)
-mylinkedList.append(2)
-mylinkedList.append(3)
-mylinkedList.append(4)
-mylinkedList.reverse()
-// mylinkedList.remove(4)
-// console.log(JSON.stringify(mylinkedList))
+const myLinkedList = new LinkedList(10);
+
+myLinkedList.append(5);
+myLinkedList.append(16);
+myLinkedList.prepend(1);
+myLinkedList.insert(2, 99);
+console.log(myLinkedList.printList()); 
+myLinkedList.remove(2);
+console.log(myLinkedList.printList()); 
 
 

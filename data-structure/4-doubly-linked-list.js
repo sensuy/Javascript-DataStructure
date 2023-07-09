@@ -17,14 +17,16 @@ class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
+    this.prev = null;
   }
 }
 
-class LinkedList {
+class DoublyLinkedList {
   constructor(value) {
     this.head = {
       value: value,
       next: null,
+      prev: null,
     };
 
     this.tail = this.head;
@@ -34,6 +36,7 @@ class LinkedList {
   append(value) {
     const newNode = new Node(value);
 
+    newNode.prev = this.tail;
     this.tail.next = newNode;
     this.tail = newNode;
     this.length++;
@@ -44,7 +47,9 @@ class LinkedList {
   prepend(value) {
     const newNode = new Node(value);
 
+    
     newNode.next = this.head;
+    this.head.prev = newNode;
     this.head = newNode;
     this.length++;
 
@@ -89,13 +94,11 @@ class LinkedList {
     const newNode = new Node(value);
 
     const leader = this.traverseToIndex(index - 1);
-
-    console.log(JSON.stringify(leader));
-    const holdingPointer = leader.next;
-
+    const follower = leader.next;
     leader.next = newNode;
-    newNode.next = holdingPointer;
-
+    newNode.prev = leader;
+    newNode.next = follower;
+    follower.prev = newNode;
     this.length++;
 
     return this;
@@ -115,41 +118,27 @@ class LinkedList {
 
     const leader = this.traverseToIndex(index - 1);
     const unwantedNode = leader.next;
+    const follower = unwantedNode.next;
 
     leader.next = unwantedNode.next;
+    follower.prev = unwantedNode.prev;
     this.length--;
+
 
     return this;
   }
 
-  reverse() {
-    let first = this.head
-    this.tail = first
-    let second = this.head.next
-
-    while (second) {
-        const temp = second.next;
-        second.next = first
-        first = second
-        second = temp;
-    }
-
-    this.head.next = null;
-    this.head = first;
-
-    return this;
-}
-
 }
 
 
-const mylinkedList = new LinkedList(0);
-mylinkedList.append(1)
-mylinkedList.append(2)
-mylinkedList.append(3)
-mylinkedList.append(4)
-mylinkedList.reverse()
-// mylinkedList.remove(4)
-// console.log(JSON.stringify(mylinkedList))
+const myLinkedList = new DoublyLinkedList(10);
+
+myLinkedList.append(5);
+// myLinkedList.append(16);
+myLinkedList.prepend(1);
+myLinkedList.insert(2, 99);
+// myLinkedList.remove(2);
+console.log(myLinkedList);
+// console.log(myLinkedList.printList()); 
 
 
