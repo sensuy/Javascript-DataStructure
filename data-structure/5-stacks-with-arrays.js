@@ -35,9 +35,6 @@ const myStack = new Stack();
 myStack.push('google')
 myStack.push('udemy')
 myStack.push('discord')
-myStack.pop();
-myStack.pop();
-myStack.pop();
 
 console.log(JSON.stringify(myStack));
 
